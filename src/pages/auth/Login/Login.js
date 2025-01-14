@@ -45,6 +45,13 @@ export default function Login() {
 
       const response = await login(loginJson);
       if (response.status === 202) {
+        const { email, username, id } = response.data;
+        const decryptedUsername = CryptoJS.AES.decrypt(
+          username,
+          process.env.REACT_APP_SECRET_KEY_AES_PASSWORD
+        ).toString(CryptoJS.enc.Utf8);
+        const userData = { email, username: decryptedUsername, id };
+        localStorage.setItem("userData", JSON.stringify(userData));
         navigate("/MyDashboard");
       }
     } catch (error) {

@@ -28,11 +28,13 @@ export default function Register() {
 
     if (!isValidEmail(email)) {
       setErrorMessage("El correo ingresado no es válido.");
+      setIsLoading(false); // Ocultar el loader
       return;
     }
 
     if (!isValidPassword(password)) {
       setErrorMessage("La contraseña debe tener al menos 8 caracteres.");
+      setIsLoading(false); // Ocultar el loader
       return;
     }
 
