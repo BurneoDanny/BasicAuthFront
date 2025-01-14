@@ -7,6 +7,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "pages/auth/Login/Login";
 import Register from "pages/auth/Register/Register";
 import Main from "pages/main/Main";
+import AccountVerified from "pages/auth/AccountVerified/AccountVerified";
+import ForgotPassword from "pages/auth/ForgotPassword/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/accountVerified",
+        element: <AccountVerified />,
+      },
+      {
+        path: "/forgotPassword",
+        element: <ForgotPassword/>
       },
       {
         path: "/MyDashboard",

@@ -3,7 +3,7 @@
     background-color: #eeeeee;
     width: 100vw;
     height: 100vh;
-    
+
 
 }
 
@@ -126,4 +126,133 @@ button[type="button"]:hover {
 
     }
 
+}
+
+/* Loader CSS */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Fondo semi-transparente */
+    z-index: 1000;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    /* Color de fondo del spinner */
+    border-top: 8px solid #3498db;
+    /* Color del spinner */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.success-message {
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+
+}
+
+.success-message a {
+    background: #007bff;
+    color: white;
+    border: 5px;
+    padding: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.success-message a:hover {
+    background: #0056b3;
+}
+
+.decrypt-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.decrypt-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.decrypt-container button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.decrypt-container button:hover {
+    background-color: #218838;
+}
+
+/* Contraseña desencriptada */
+.decrypted-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.decrypted-container p {
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.decrypted-container span {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 18px;
+    color: #333;
+}
+
+.decrypted-container button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.decrypted-container button:hover {
+    background-color: #0056b3;
 }

@@ -2,7 +2,7 @@ import apiClient from "./AxiosConfiguration";
 
 export const login = async (userJson) => {
   try {
-    const response = await apiClient.post("/auth/login", userJson);
+    const response = await apiClient.post("/system/login", userJson);
     return response;
   } catch (error) {
     if (error.response) {
@@ -18,7 +18,7 @@ export const login = async (userJson) => {
 
 export const register = async (newUserJson) => {
   try {
-    const response = await apiClient.post("/auth/register", newUserJson);
+    const response = await apiClient.post("/system/register", newUserJson);
     return response;
   } catch (error) {
     if (error.response) {
@@ -34,7 +34,7 @@ export const register = async (newUserJson) => {
 
 export const logout = async (refreshToken) => {
   try {
-    const response = await apiClient.post("/auth/logout", refreshToken);
+    const response = await apiClient.post("/system/logout", refreshToken);
     document.cookie = "XSRF-TOKEN=; Max-Age=0";
     return response;
   } catch (error) {
@@ -45,5 +45,21 @@ export const logout = async (refreshToken) => {
     } else {
       console.error("Error setting up the request:", error.message);
     }
+  }
+};
+
+export const forgotPassword = async (recoveryJson) => {
+  try {
+    const response = await apiClient.post("/system/forgotPassword", recoveryJson);
+    return response;
+  } catch (error) {
+    if (error.response) {
+      console.error("Server error:", error.response.data);
+    } else if (error.request) {
+      console.error("No response from the server.");
+    } else {
+      console.error("Error setting up the request:", error.message);
+    }
+    throw error;
   }
 };

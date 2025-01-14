@@ -1,0 +1,81 @@
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  span {
+    padding: 5px;
+    border: 1px solid transparent;
+  }
+  
+  input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .edit-icon {
+    background-color: #ffc107;
+    color: #333;
+  }
+  
+  .edit-icon:hover {
+    background-color: #e0a800;
+  }
+  
+  .save-button {
+    background-color: #28a745;
+  }
+  
+  .save-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

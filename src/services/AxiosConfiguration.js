@@ -1,33 +1,31 @@
 import axios from "axios";
 
-// function getCsrfToken() {
-//   const cookies = document.cookie.split(";").map((cookie) => cookie.trim());
-//   const csrfCookie = cookies.find((cookie) => cookie.startsWith("XSRF-TOKEN="));
-//   if (csrfCookie) {
-//     return decodeURIComponent(csrfCookie.split("=")[1]); // Obtener el valor después del "="
-//   }
-//   console.error("CSRF token not found"); // aparecera en la primera llamada ya que no hay csrf token
-//   return null;
-// }
+function getCsrfToken() {
+  const cookies = document.cookie.split(";").map((cookie) => cookie.trim());
+  const csrfCookie = cookies.find((cookie) => cookie.startsWith("XSRF-TOKEN="));
+  if (csrfCookie) {
+    return decodeURIComponent(csrfCookie.split("=")[1]); // Obtener el valor después del "="
+  }
+  console.error("CSRF token not found"); // aparecera en la primera llamada ya que no hay csrf token
+  return null;
+}
 
 const apiClient = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
   withCredentials: true,
 });
 
-// Interceptor para añadir el token CSRF a cada solicitud (en el header) si está presente
-// apiClient.interceptors.request.use(
-//   async (config) => {
-//     const csrfToken = getCsrfToken();
-//     if (csrfToken) {
-//       config.headers["X-XSRF-TOKEN"] = csrfToken;
-//     }
-//     return config;
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   }
-// );
+apiClient.interceptors.request.use(
+  async (config) => {
+    const csrfToken = getCsrfToken();
+    if (csrfToken) {
+      config.headers["X-XSRF-TOKEN"] = csrfToken;
+    }
+    return config;
+  }, (error) => {
+    return Promise.reject(error);
+  }
+);
 
 // We can use interceptors to refresh the token if it expires and retry the request,
 // so the user doesn't have to log in again. This is done by intercepting a 401 response.
